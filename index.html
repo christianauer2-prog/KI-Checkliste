@@ -1,66 +1,345 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KI-Vertriebsreife Checkliste</title>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
-.container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
-.header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 30px; text-align: center; }
-.header h1 { font-size: 28px; margin-bottom: 10px; }
-.content { padding: 40px; }
-.question-section { margin-bottom: 25px; padding: 15px; background: #f8f9fa; border-radius: 8px; }
-.question-title { font-weight: 600; color: #333; margin-bottom: 12px; }
-.options { display: flex; flex-direction: column; gap: 10px; }
-.option { display: flex; align-items: center; padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px; cursor: pointer; }
-.option:hover { border-color: #667eea; background: #f5f7ff; }
-.option input { margin-right: 12px; }
-.btn-group { display: flex; gap: 15px; justify-content: center; margin-top: 30px; }
-button { padding: 12px 30px; font-size: 16px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
-.btn-submit { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
-.btn-reset { background: #f0f0f0; color: #333; }
-.result { display: none; background: #f8f9fa; padding: 30px; border-radius: 8px; margin-top: 30px; }
-.result.show { display: block; }
-.score-display { font-size: 36px; font-weight: 700; color: #667eea; margin: 20px 0; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI-Vertriebsreife Checkliste</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #5ba3c4 0%, #4a8fa8 100%);
+            min-height: 100vh;
+            padding: 30px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 50px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #FFC81E;
+            padding-bottom: 20px;
+        }
+        
+        header h1 {
+            color: #1a1a1a;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            color: #5ba3c4;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .question-group {
+            margin-bottom: 30px;
+        }
+        
+        .question-group label {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #1a1a1a;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        
+        .question-group input[type="checkbox"] {
+            margin-right: 10px;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: #FFC81E;
+        }
+        
+        .section-title {
+            background: #5ba3c4;
+            color: white;
+            padding: 12px 20px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .button-group {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        button {
+            background: #FFC81E;
+            color: #1a1a1a;
+            border: none;
+            padding: 14px 40px;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background: #FFB81E;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 200, 30, 0.3);
+        }
+        
+        .result-box {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-left: 4px solid #FFC81E;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .result-box.show {
+            display: block;
+        }
+        
+        .result-box h3 {
+            color: #5ba3c4;
+            margin-bottom: 10px;
+        }
+        
+        .result-box p {
+            color: #1a1a1a;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        
+        .score-percentage {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFC81E;
+            margin: 15px 0;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<div class="header">
-<h1>🚀 KI-Vertriebsreife Checkliste</h1>
-<p>Diagnose-Tool für B2B-Unternehmen | Automatische Bewertung</p>
-</div>
-<div class="content">
-<form id="checklistForm">
-  <div class="question-section"><div class="question-title">1. Schriftliche Vertriebsstrategie mit Zielen?</div><div class="options"><label class="option"><input type="radio" name="q1" value="100"> Ja</label><label class="option"><input type="radio" name="q1" value="50"> Teilweise</label><label class="option"><input type="radio" name="q1" value="0"> Nein</label></div></div>
-<div class="question-section"><div class="question-title">2. KI-Initiativen gekoppelt mit Vertriebszielen?</div><div class="options"><label class="option"><input type="radio" name="q2" value="100"> Ja, aktiv</label><label class="option"><input type="radio" name="q2" value="50"> Geplant</label><label class="option"><input type="radio" name="q2" value="0"> Nein</label></div></div>
-<div class="question-section"><div class="question-title">3. Geschaeftsfuehrung unterstützt Digitalisierung?</div><div class="options"><label class="option"><input type="radio" name="q3" value="100"> Ja, mit Budget</label><label class="option"><input type="radio" name="q3" value="50"> Teilweise</label><label class="option"><input type="radio" name="q3" value="0"> Skeptisch</label></div></div>
-<div class="btn-group"><button type="button" class="btn-submit" onclick="calculateScore()">Ergebnis Berechnen</button><button type="button" class="btn-reset" onclick="resetForm()">Formular Zurücksetzen</button></div></form><div id="result" class="result"><h3>Ihr KI-Vertriebsreife-Score</h3><div class="score-display" id="scoreValue">0%</div><div id="recommendation"></div></div></div></div></div>
-<script>
-function calculateScore(){
-let totalScore = 0, count = 0;
-for(let i=1;i<=3;i++){
-let ans = document.querySelector('input[name="q'+i+'"]'+':checked');
-if(!ans){alert('Bitte alle Fragen beantworten!');return;}
-totalScore += parseInt(ans.value);
-count++;
-}
-let score = (totalScore/100)*100;
-let recommendation = '';
-if(score <= 30) recommendation = '"Nicht Ready: CRM + Datenstandardisierung erforderlich (6-12 Monate)';
-else if(score <= 50) recommendation = '"Early Stage: Erste Piloten möglich';
-else if(score <= 70) recommendation = '"Ready for Scale: Systematische KI-Einführing empfohlen';
-else recommendation = '"Advanced: Vollständige KI-Integration machbar';
-document.getElementById('scoreValue').textContent = Math.round(score)+'%';
-document.getElementById('recommendation').innerHTML = '<p>'+recommendation+'</p>';
-document.getElementById('result').classList.add('show');
-}
-function resetForm(){
-document.getElementById('checklistForm').reset();
-document.getElementById('result').classList.remove('show');
-}
-</script>
+    <div class="container">
+        <header>
+            <h1>KI-Vertriebsreife Checkliste</h1>
+            <p>Bewerten Sie Ihren aktuellen Reifegrad für AI-Integration im Vertrieb</p>
+        </header>
+        
+        <form id="checklist-form">
+            <!-- Kategorie 1: Organisatorische Voraussetzungen -->
+            <div class="section-title">1. Organisatorische Voraussetzungen</div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q1" value="1">
+                    Verfügt Ihr Vertriebsteam über eine klare Strategie und Ziele?
+                </label>
+            </div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q2" value="1">
+                    Sind Ihre Geschäftsprozesse dokumentiert und standardisiert?
+                </label>
+            </div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q3" value="1">
+                    Haben Sie ein CRM-System implementiert und nutzen es aktiv?
+                </label>
+            </div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q4" value="1">
+                    Ist Ihr Management von AI-Implementation überzeugt und unterstützt sie?
+                </label>
+            </div>
+            
+            <!-- Kategorie 2: Datenverwaltung & Infrastruktur -->
+            <div class="section-title">2. Datenverwaltung & Infrastruktur</div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q5" value="1">
+                    Haben Sie eine zentrale Datenverwaltung/Data Warehouse?
+                </label>
+            </div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q6" value="1">
+                    Sind Ihre Daten strukturiert, sauber und aktuell?
+                </label>
+            </div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q7" value="1">
+                    Verfügen Sie über ausreichende IT-Infrastruktur und Cloud-Kapazität?
+                </label>
+            </div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q8" value="1">
+                    Sind Datensicherheit und Datenschutz (DSGVO) implementiert?
+                </label>
+            </div>
+            
+            <!-- Kategorie 3: Personal & Kompetenzen -->
+            <div class="section-title">3. Personal & Kompetenzen</div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q9" value="1">
+                    Verfügen Sie über Mitarbeiter mit AI/Datenanalytik-Kenntnissen?
+                </label>
+            </div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q10" value="1">
+                    Ist Ihre Organisation bereit für Schulungen und Weiterbildung?
+                </label>
+            </div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q11" value="1">
+                    Akzeptiert Ihr Team neue technische Werkzeuge und Prozesse?
+                </label>
+            </div>
+            
+            <!-- Kategorie 4: Geschäftliche Anwendungsfälle -->
+            <div class="section-title">4. Geschäftliche Anwendungsfälle</div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q12" value="1">
+                    Haben Sie Schmerzpunkte identifiziert, die AI lösen könnte?
+                </label>
+            </div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q13" value="1">
+                    Können Sie ROI für AI-Investitionen kalkulieren?
+                </label>
+            </div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q14" value="1">
+                    Haben Sie konkrete Use Cases für Lead-Qualifizierung oder Vorhersagen?
+                </label>
+            </div>
+            
+            <!-- Kategorie 5: Technologische Readiness -->
+            <div class="section-title">5. Technologische Readiness</div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q15" value="1">
+                    Sind Ihre Systeme integriert oder können sie integriert werden?
+                </label>
+            </div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q16" value="1">
+                    Haben Sie API-Zugang zu Ihren bestehenden Systemen?
+                </label>
+            </div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q17" value="1">
+                    Nutzen Sie bereits Cloud-Services (AWS, Azure, Google Cloud)?
+                </label>
+            </div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q18" value="1">
+                    Haben Sie einen IT-Support/DevOps-Team für Implementation?
+                </label>
+            </div>
+            
+            <!-- Kategorie 6: Governance & Change Management -->
+            <div class="section-title">6. Governance & Change Management</div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q19" value="1">
+                    Haben Sie eine Change-Management-Strategie?
+                </label>
+            </div>
+            
+            <div class="question-group">
+                <label>
+                    <input type="checkbox" name="q20" value="1">
+                    Sind ethische AI-Richtlinien und Compliance-Anforderungen geklärt?
+                </label>
+            </div>
+            
+            <div class="button-group">
+                <button type="button" onclick="calculateScore()">Ergebnis berechnen</button>
+                <button type="reset">Formular zurücksetzen</button>
+            </div>
+        </form>
+        
+        <div class="result-box" id="result">
+            <h3>Ihre KI-Vertriebsreife</h3>
+            <div class="score-percentage" id="score-value">0%</div>
+            <p id="recommendation"></p>
+        </div>
+    </div>
+    
+    <script>
+        function calculateScore() {
+            const form = document.getElementById('checklist-form');
+            const checkboxes = form.querySelectorAll('input[type="checkbox"]:checked');
+            const totalQuestions = 20;
+            const checkedCount = checkboxes.length;
+            const percentage = Math.round((checkedCount / totalQuestions) * 100);
+            
+            document.getElementById('score-value').textContent = percentage + '%';
+            
+            let recommendation = '';
+            if (percentage >= 80) {
+                recommendation = 'Exzellent! Ihr Unternehmen ist sehr gut für die KI-Integration vorbereitet. Sie können mit umfassenden AI-Implementierungen beginnen.';
+            } else if (percentage >= 60) {
+                recommendation = 'Gut vorbereitet. Sie haben eine solide Grundlage. Konzentrieren Sie sich auf die fehlenden Bereiche vor der Implementation.';
+            } else if (percentage >= 40) {
+                recommendation = 'Moderate Readiness. Sie sollten einzelne KI-Maßnahmen mit Pilotprojekten beginnen und die Organisationen stärken.';
+            } else {
+                recommendation = 'Begrenzte Readiness. Priorisieren Sie grundlegende Infrastruktur und Organisationsentwicklung bevor Sie AI implementieren.';
+            }
+            
+            document.getElementById('recommendation').textContent = recommendation;
+            document.getElementById('result').classList.add('show');
+            
+            // Scroll to result
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
