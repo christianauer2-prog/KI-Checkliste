@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KI-Vertriebsreife Checkliste</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+.container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 30px; text-align: center; }
+.header h1 { font-size: 28px; margin-bottom: 10px; }
+.content { padding: 40px; }
+.question-section { margin-bottom: 25px; padding: 15px; background: #f8f9fa; border-radius: 8px; }
+.question-title { font-weight: 600; color: #333; margin-bottom: 12px; }
+.options { display: flex; flex-direction: column; gap: 10px; }
+.option { display: flex; align-items: center; padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px; cursor: pointer; }
+.option:hover { border-color: #667eea; background: #f5f7ff; }
+.option input { margin-right: 12px; }
+.btn-group { display: flex; gap: 15px; justify-content: center; margin-top: 30px; }
+button { padding: 12px 30px; font-size: 16px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
+.btn-submit { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+.btn-reset { background: #f0f0f0; color: #333; }
+.result { display: none; background: #f8f9fa; padding: 30px; border-radius: 8px; margin-top: 30px; }
+.result.show { display: block; }
+.score-display { font-size: 36px; font-weight: 700; color: #667eea; margin: 20px 0; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>🚀 KI-Vertriebsreife Checkliste</h1>
+<p>Diagnose-Tool für B2B-Unternehmen | Automatische Bewertung</p>
+</div>
+<div class="content">
+<form id="checklistForm">
+  <div class="question-section"><div class="question-title">1. Schriftliche Vertriebsstrategie mit Zielen?</div><div class="options"><label class="option"><input type="radio" name="q1" value="100"> Ja</label><label class="option"><input type="radio" name="q1" value="50"> Teilweise</label><label class="option"><input type="radio" name="q1" value="0"> Nein</label></div></div>
+<div class="question-section"><div class="question-title">2. KI-Initiativen gekoppelt mit Vertriebszielen?</div><div class="options"><label class="option"><input type="radio" name="q2" value="100"> Ja, aktiv</label><label class="option"><input type="radio" name="q2" value="50"> Geplant</label><label class="option"><input type="radio" name="q2" value="0"> Nein</label></div></div>
+<div class="question-section"><div class="question-title">3. Geschaeftsfuehrung unterstützt Digitalisierung?</div><div class="options"><label class="option"><input type="radio" name="q3" value="100"> Ja, mit Budget</label><label class="option"><input type="radio" name="q3" value="50"> Teilweise</label><label class="option"><input type="radio" name="q3" value="0"> Skeptisch</label></div></div>
+<div class="btn-group"><button type="button" class="btn-submit" onclick="calculateScore()">Ergebnis Berechnen</button><button type="button" class="btn-reset" onclick="resetForm()">Formular Zurücksetzen</button></div></form><div id="result" class="result"><h3>Ihr KI-Vertriebsreife-Score</h3><div class="score-display" id="scoreValue">0%</div><div id="recommendation"></div></div></div></div></div>
+<script>
+function calculateScore(){
+let totalScore = 0, count = 0;
+for(let i=1;i<=3;i++){
+let ans = document.querySelector('input[name="q'+i+'"]'+':checked');
+if(!ans){alert('Bitte alle Fragen beantworten!');return;}
+totalScore += parseInt(ans.value);
+count++;
+}
+let score = (totalScore/100)*100;
+let recommendation = '';
+if(score <= 30) recommendation = '"Nicht Ready: CRM + Datenstandardisierung erforderlich (6-12 Monate)';
+else if(score <= 50) recommendation = '"Early Stage: Erste Piloten möglich';
+else if(score <= 70) recommendation = '"Ready for Scale: Systematische KI-Einführing empfohlen';
+else recommendation = '"Advanced: Vollständige KI-Integration machbar';
+document.getElementById('scoreValue').textContent = Math.round(score)+'%';
+document.getElementById('recommendation').innerHTML = '<p>'+recommendation+'</p>';
+document.getElementById('result').classList.add('show');
+}
+function resetForm(){
+document.getElementById('checklistForm').reset();
+document.getElementById('result').classList.remove('show');
+}
+</script>
+</body>
+</html>
