@@ -30,7 +30,7 @@
 <!-- N8N INTEGRATION FUNCTIONS START -->
 <script id="n8n-integration">
 // N8N Webhook Configuration
-const N8N_WEBHOOK_URL = 'REPLACE_WITH_YOUR_N8N_WEBHOOK_URL';
+const N8N_WEBHOOK_URL = 'https://christianauer.app.n8n.cloud/webhook/a0b4ddb5-8d2f-44ec-bc1e-b6de900f7199';
 
 function openRecommendationModal() {
   document.getElementById('recommendationModal').classList.add('show');
@@ -76,7 +76,7 @@ async function submitRecommendationRequest() {
   const formData = collectFormData();
   
   try {
-    const response = await fetch(N8N_WEBHOOK_URL, {
+    const response = await fetch(https://christianauer.app.n8n.cloud/webhook/a0b4ddb5-8d2f-44ec-bc1e-b6de900f7199, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(formData)
