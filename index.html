@@ -5,158 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KI-Vertriebsreife Checkliste</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #5ba3c4 0%, #4a8fa8 100%);
-      min-height: 100vh;
-      padding: 30px 20px;
-    }
-    
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      padding: 50px;
-    }
-    
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-      border-bottom: 3px solid #FFC81E;
-      padding-bottom: 20px;
-    }
-    
-    header h1 {
-      color: #1a1a1a;
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-    
-    header p {
-      color: #5ba3c4;
-      font-size: 16px;
-      font-weight: 500;
-    }
-    
-    .question {
-      margin-bottom: 30px;
-    }
-    
-    .question label {
-      font-size: 15px;
-      color: #1a1a1a;
-      font-weight: 500;
-      margin-bottom: 12px;
-      display: block;
-    }
-    
-    .question.missing label {
-      color: red;
-    }
-    
-    .missing-warning {
-      color: red;
-      font-weight: bold;
-      display: none;
-    }
-    
-    .answer-options {
-      margin-left: 0;
-      background: #f9f9f9;
-      padding: 12px;
-      border-radius: 4px;
-    }
-    
-    .answer-options label {
-      display: block;
-      margin-bottom: 10px;
-      cursor: pointer;
-      font-size: 14px;
-      color: #333;
-      font-weight: normal;
-    }
-    
-    .answer-options input[type="radio"] {
-      margin-right: 8px;
-      cursor: pointer;
-      width: 16px;
-      height: 16px;
-      accent-color: #FFC81E;
-    }
-    
-    .section-title {
-      background: #5ba3c4;
-      color: white;
-      padding: 12px 20px;
-      margin-top: 30px;
-      margin-bottom: 20px;
-      border-radius: 4px;
-      font-size: 16px;
-      font-weight: 600;
-    }
-    
-    .button-group {
-      margin-top: 40px;
-      text-align: center;
-    }
-    
-    button {
-      background: #FFC81E;
-      color: #1a1a1a;
-      border: none;
-      padding: 14px 40px;
-      margin: 10px;
-      font-size: 16px;
-      font-weight: 600;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    button:hover {
-      background: #FFB81E;
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(255, 200, 30, 0.3);
-    }
-    
-    .result-box {
-      margin-top: 30px;
-      padding: 20px;
-      background: #f5f5f5;
-      border-left: 4px solid #FFC81E;
-      border-radius: 4px;
-      display: none;
-    }
-    
-    .result-box.show {
-      display: block;
-    }
-    
-    .result-box h3 {
-      color: #5ba3c4;
-      margin-bottom: 10px;
-    }
-    
-    .result-box p {
-      color: #1a1a1a;
-      line-height: 1.6;
-      margin-bottom: 8px;
-    }
-    
-    .score-percentage {
-      font-size: 24px;
-      font-weight: bold;
-      color: #FFC81E;
-      margin: 15px 0;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #5ba3c4 0%, #4a8fa8 100%); min-height: 100vh; padding: 30px 20px; }
+    .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); padding: 50px; }
+    header { text-align: center; margin-bottom: 40px; border-bottom: 3px solid #FFC81E; padding-bottom: 20px; }
+    header h1 { color: #1a1a1a; font-size: 32px; margin-bottom: 10px; }
+    header p { color: #5ba3c4; font-size: 16px; font-weight: 500; }
+    .question { margin-bottom: 30px; }
+    .question label { font-size: 15px; color: #1a1a1a; font-weight: 500; margin-bottom: 12px; display: block; }
+    .question.missing label { color: red; }
+    .missing-warning { color: red; font-weight: bold; display: none; margin-bottom: 8px; }
+    .answer-options { background: #f9f9f9; padding: 12px; border-radius: 4px; }
+    .answer-options label { display: block; margin-bottom: 10px; cursor: pointer; font-size: 14px; color: #333; font-weight: normal; }
+    .answer-options input[type="radio"] { margin-right: 8px; cursor: pointer; width: 16px; height: 16px; accent-color: #FFC81E; }
+    .section-title { background: #5ba3c4; color: white; padding: 12px 20px; margin-top: 30px; margin-bottom: 20px; border-radius: 4px; font-size: 16px; font-weight: 600; }
+    .button-group { margin-top: 40px; text-align: center; }
+    button { background: #FFC81E; color: #1a1a1a; border: none; padding: 14px 40px; margin: 10px; font-size: 16px; font-weight: 600; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; }
+    button:hover { background: #FFB81E; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 200, 30, 0.3); }
+    .result-box { margin-top: 30px; padding: 20px; background: #f5f5f5; border-left: 4px solid #FFC81E; border-radius: 4px; display: none; }
+    .result-box.show { display: block; }
+    .result-box h3 { color: #5ba3c4; margin-bottom: 10px; }
+    .result-box p { color: #1a1a1a; line-height: 1.6; margin-bottom: 8px; }
+    .score-percentage { font-size: 24px; font-weight: bold; color: #FFC81E; margin: 15px 0; }
   </style>
 </head>
 <body>
@@ -165,171 +35,43 @@
       <h1>KI-Vertriebsreife Checkliste</h1>
       <p>Bewerten Sie Ihren aktuellen Reifegrad für AI-Integration im Vertrieb</p>
     </header>
-    
     <form id="checklist-form">
       <div class="section-title">1. Organisatorische Voraussetzungen</div>
-      
-      <div class="question">
-        <label>Verfügt Ihr Vertriebsteam über eine klare Strategie und Ziele?</label>
-        <span class="missing-warning">Bitte beantworten.</span>
-        <div class="answer-options">
-          <label><input type="radio" name="q1" value="100"> Vollkommen</label>
-          <label><input type="radio" name="q1" value="50"> Teilweise</label>
-          <label><input type="radio" name="q1" value="0"> Nur sehr begrenzt</label>
-        </div>
-      </div>
-      
-      <div class="question">
-        <label>Sind Ihre Geschäftsprozesse dokumentiert und standardisiert?</label>
-        <span class="missing-warning">Bitte beantworten.</span>
-        <div class="answer-options">
-          <label><input type="radio" name="q2" value="100"> Vollkommen</label>
-          <label><input type="radio" name="q2" value="50"> Teilweise</label>
-          <label><input type="radio" name="q2" value="0"> Nur sehr begrenzt</label>
-        </div>
-      </div>
-      
-      <div class="question">
-        <label>Haben Sie ein CRM-System implementiert und nutzen es aktiv?</label>
-        <span class="missing-warning">Bitte beantworten.</span>
-        <div class="answer-options">
-          <label><input type="radio" name="q3" value="100"> Vollkommen</label>
-          <label><input type="radio" name="q3" value="50"> Teilweise</label>
-          <label><input type="radio" name="q3" value="0"> Nur sehr begrenzt</label>
-        </div>
-      </div>
-      
-      <div class="question">
-        <label>Ist Ihr Management von AI-Implementation überzeugt und unterstützt sie?</label>
-        <span class="missing-warning">Bitte beantworten.</span>
-        <div class="answer-options">
-          <label><input type="radio" name="q4" value="100"> Vollkommen</label>
-          <label><input type="radio" name="q4" value="50"> Teilweise</label>
-          <label><input type="radio" name="q4" value="0"> Nur sehr begrenzt</label>
-        </div>
-      </div>
+      <div class="question"><label>Verfügt Ihr Vertriebsteam über eine klare Strategie und Ziele?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q1" value="100"> Vollkommen</label><label><input type="radio" name="q1" value="50"> Teilweise</label><label><input type="radio" name="q1" value="0"> Nur sehr begrenzt</label></div></div>
+      <div class="question"><label>Sind Ihre Geschäftsprozesse dokumentiert und standardisiert?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q2" value="100"> Vollkommen</label><label><input type="radio" name="q2" value="50"> Teilweise</label><label><input type="radio" name="q2" value="0"> Nur sehr begrenzt</label></div></div>
+      <div class="question"><label>Haben Sie ein CRM-System implementiert und nutzen es aktiv?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q3" value="100"> Vollkommen</label><label><input type="radio" name="q3" value="50"> Teilweise</label><label><input type="radio" name="q3" value="0"> Nur sehr begrenzt</label></div></div>
+      <div class="question"><label>Ist Ihr Management von AI-Implementation überzeugt und unterstützt sie?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q4" value="100"> Vollkommen</label><label><input type="radio" name="q4" value="50"> Teilweise</label><label><input type="radio" name="q4" value="0"> Nur sehr begrenzt</label></div></div>
       
       <div class="section-title">2. Datenverwaltung &amp; Infrastruktur</div>
-      
-      <div class="question">
-        <label>Haben Sie eine zentrale Datenverwaltung/Data Warehouse?</label>
-        <span class="missing-warning">Bitte beantworten.</span>
-        <div class="answer-options">
-          <label><input type="radio" name="q5" value="100"> Vollkommen</label>
-          <label><input type="radio" name="q5" value="50"> Teilweise</label>
-          <label><input type="radio" name="q5" value="0"> Nur sehr begrenzt</label>
-        </div>
-      </div>
-      
-      <div class="question">
-        <label>Sind Ihre Daten strukturiert, sauber und aktuell?</label>
-        <span class="missing-warning">Bitte beantworten.</span>
-        <div class="answer-options">
-          <label><input type="radio" name="q6" value="100"> Vollkommen</label>
-          <label><input type="radio" name="q6" value="50"> Teilweise</label>
-          <label><input type="radio" name="q6" value="0"> Nur sehr begrenzt</label>
-        </div>
-      </div>
-      
-      <div class="question">
-        <label>Verfügen Sie über ausreichende IT-Infrastruktur und Cloud-Kapazität?</label>
-        <span class="missing-warning">Bitte beantworten.</span>
-        <div class="answer-options">
-          <label><input type="radio" name="q7" value="100"> Vollkommen</label>
-          <label><input type="radio" name="q7" value="50"> Teilweise</label>
-          <label><input type="radio" name="q7" value="0"> Nur sehr begrenzt</label>
-        </div>
-      </div>
-      
-      <div class="question">
-        <label>Sind Datensicherheit und Datenschutz (DSGVO) implementiert?</label>
-        <span class="missing-warning">Bitte beantworten.</span>
-        <div class="answer-options">
-          <label><input type="radio" name="q8" value="100"> Vollkommen</label>
-          <label><input type="radio" name="q8" value="50"> Teilweise</label>
-          <label><input type="radio" name="q8" value="0"> Nur sehr begrenzt</label>
-        </div>
-      </div>
+      <div class="question"><label>Haben Sie eine zentrale Datenverwaltung/Data Warehouse?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q5" value="100"> Vollkommen</label><label><input type="radio" name="q5" value="50"> Teilweise</label><label><input type="radio" name="q5" value="0"> Nur sehr begrenzt</label></div></div>
+      <div class="question"><label>Sind Ihre Daten strukturiert, sauber und aktuell?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q6" value="100"> Vollkommen</label><label><input type="radio" name="q6" value="50"> Teilweise</label><label><input type="radio" name="q6" value="0"> Nur sehr begrenzt</label></div></div>
+      <div class="question"><label>Verfügen Sie über ausreichende IT-Infrastruktur und Cloud-Kapazität?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q7" value="100"> Vollkommen</label><label><input type="radio" name="q7" value="50"> Teilweise</label><label><input type="radio" name="q7" value="0"> Nur sehr begrenzt</label></div></div>
+      <div class="question"><label>Sind Datensicherheit und Datenschutz (DSGVO) implementiert?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q8" value="100"> Vollkommen</label><label><input type="radio" name="q8" value="50"> Teilweise</label><label><input type="radio" name="q8" value="0"> Nur sehr begrenzt</label></div></div>
       
       <div class="section-title">3. Personal &amp; Kompetenzen</div>
-      
-      <div class="question">
-        <label>Verfügen Sie über Mitarbeiter mit AI/Datenanalytik-Kenntnissen?</label>
-        <span class="missing-warning">Bitte beantworten.</span>
-        <div class="answer-options">
-          <label><input type="radio" name="q9" value="100"> Vollkommen</label>
-          <label><input type="radio" name="q9" value="50"> Teilweise</label>
-          <label><input type="radio" name="q9" value="0"> Nur sehr begrenzt</label>
-        </div>
-      </div>
-      
-      <div class="question">
-        <label>Ist Ihre Organisation bereit für Schulungen und Weiterbildung?</label>
-        <span class="missing-warning">Bitte beantworten.</span>
-        <div class="answer-options">
-          <label><input type="radio" name="q10" value="100"> Vollkommen</label>
-          <label><input type="radio" name="q10" value="50"> Teilweise</label>
-          <label><input type="radio" name="q10" value="0"> Nur sehr begrenzt</label>
-        </div>
-      </div>
-      
-      <div class="question">
-        <label>Akzeptiert Ihr Team neue technische Werkzeuge und Prozesse?</label>
-        <span class="missing-warning">Bitte beantworten.</span>
-        <div class="answer-options">
-          <label><input type="radio" name="q11" value="100"> Vollkommen</label>
-          <label><input type="radio" name="q11" value="50"> Teilweise</label>
-          <label><input type="radio" name="q11" value="0"> Nur sehr begrenzt</label>
-        </div>
-      </div>
+      <div class="question"><label>Verfügen Sie über Mitarbeiter mit AI/Datenanalytik-Kenntnissen?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q9" value="100"> Vollkommen</label><label><input type="radio" name="q9" value="50"> Teilweise</label><label><input type="radio" name="q9" value="0"> Nur sehr begrenzt</label></div></div>
+      <div class="question"><label>Ist Ihre Organisation bereit für Schulungen und Weiterbildung?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q10" value="100"> Vollkommen</label><label><input type="radio" name="q10" value="50"> Teilweise</label><label><input type="radio" name="q10" value="0"> Nur sehr begrenzt</label></div></div>
+      <div class="question"><label>Akzeptiert Ihr Team neue technische Werkzeuge und Prozesse?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q11" value="100"> Vollkommen</label><label><input type="radio" name="q11" value="50"> Teilweise</label><label><input type="radio" name="q11" value="0"> Nur sehr begrenzt</label></div></div>
       
       <div class="section-title">4. Geschäftliche Anwendungsfälle</div>
-      
-      <div class="question">
-        <label>Haben Sie Schmerzpunkte identifiziert, die AI lösen könnte?</label>
-        <span class="missing-warning">Bitte beantworten.</span>
-        <div class="answer-options">
-          <label><input type="radio" name="q12" value="100"> Vollkommen</label>
-          <label><input type="radio" name="q12" value="50"> Teilweise</label>
-          <label><input type="radio" name="q12" value="0"> Nur sehr begrenzt</label>
-        </div>
-      </div>
-      
-      <div class="question">
-        <label>Können Sie ROI für AI-Investitionen kalkulieren?</label>
-        <span class="missing-warning">Bitte beantworten.</span>
-        <div class="answer-options">
-          <label><input type="radio" name="q13" value="100"> Vollkommen</label>
-          <label><input type="radio" name="q13" value="50"> Teilweise</label>
-          <label><input type="radio" name="q13" value="0"> Nur sehr begrenzt</label>
-        </div>
-      </div>
-      
-      <div class="question">
-        <label>Haben Sie konkrete Use Cases für Lead-Qualifizierung oder Vorhersagen?</label>
-        <span class="missing-warning">Bitte beantworten.</span>
-        <div class="answer-options">
-          <label><input type="radio" name="q14" value="100"> Vollkommen</label>
-          <label><input type="radio" name="q14" value="50"> Teilweise</label>
-          <label><input type="radio" name="q14" value="0"> Nur sehr begrenzt</label>
-        </div>
-      </div>
+      <div class="question"><label>Haben Sie Schmerzpunkte identifiziert, die AI lösen könnte?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q12" value="100"> Vollkommen</label><label><input type="radio" name="q12" value="50"> Teilweise</label><label><input type="radio" name="q12" value="0"> Nur sehr begrenzt</label></div></div>
+      <div class="question"><label>Können Sie ROI für AI-Investitionen kalkulieren?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q13" value="100"> Vollkommen</label><label><input type="radio" name="q13" value="50"> Teilweise</label><label><input type="radio" name="q13" value="0"> Nur sehr begrenzt</label></div></div>
+      <div class="question"><label>Haben Sie konkrete Use Cases für Lead-Qualifizierung?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q14" value="100"> Vollkommen</label><label><input type="radio" name="q14" value="50"> Teilweise</label><label><input type="radio" name="q14" value="0"> Nur sehr begrenzt</label></div></div>
       
       <div class="section-title">5. Technologische Readiness</div>
+      <div class="question"><label>Sind Ihre Systeme integriert oder können sie integriert werden?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q15" value="100"> Vollkommen</label><label><input type="radio" name="q15" value="50"> Teilweise</label><label><input type="radio" name="q15" value="0"> Nur sehr begrenzt</label></div></div>
+      <div class="question"><label>Verfügen Sie über API-Schnittstellen zwischen den wichtigsten Systemen?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q16" value="100"> Vollkommen</label><label><input type="radio" name="q16" value="50"> Teilweise</label><label><input type="radio" name="q16" value="0"> Nur sehr begrenzt</label></div></div>
       
-      <div class="question">
-        <label>Sind Ihre Systeme integriert oder können sie integriert werden?</label>
-        <span class="missing-warning">Bitte beantworten.</span>
-        <div class="answer-options">
-          <label><input type="radio" name="q15" value="100"> Vollkommen</label>
-          <label><input type="radio" name="q15" value="50"> Teilweise</label>
-          <label><input type="radio" name="q15" value="0"> Nur sehr begrenzt</label>
-        </div>
-      </div>
-      
-      <div class="question">
-        <label>Verfügen Sie über API-Schnittstellen zwischen den wichtigsten Systemen?</label>
-        <span class="missing-warning">Bitte beantworten.</span>
-        <div class="answer-options">
-          <label><input type="radio" name="q16" value="100"> Vollkommen</label>
-          <label><input type="
+      <div class="section-title">6. Change Management &amp; Adoption</div>
+      <div class="question"><label>Haben Sie eine Change-Management-Strategie für AI?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q17" value="100"> Vollkommen</label><label><input type="radio" name="q17" value="50"> Teilweise</label><label><input type="radio" name="q17" value="0"> Nur sehr begrenzt</label></div></div>
+      <div class="question"><label>Sind Ihre Mitarbeiter offen für kulturelle Veränderungen?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q18" value="100"> Vollkommen</label><label><input type="radio" name="q18" value="50"> Teilweise</label><label><input type="radio" name="q18" value="0"> Nur sehr begrenzt</label></div></div>
+      <div class="question"><label>Haben Sie klare KPIs für AI-Success definiert?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q19" value="100"> Vollkommen</label><label><input type="radio" name="q19" value="50"> Teilweise</label><label><input type="radio" name="q19" value="0"> Nur sehr begrenzt</label></div></div>
+      <div class="question"><label>Planen Sie regelmäßige Evaluationen der KI-Performance?</label><span class="missing-warning">Bitte beantworten.</span><div class="answer-options"><label><input type="radio" name="q20" value="100"> Vollkommen</label><label><input type="radio" name="q20" value="50"> Teilweise</label><label><input type="radio" name="q20" value="0"> Nur sehr begrenzt</label></div></div>
+    </form>
+    
+    <div class="button-group">
+      <button id="calculateBtn">Ergebnis berechnen</button>
+      <button id="resetBtn">Formular zurücksetzen</button>
+    </div>
+    
+    
