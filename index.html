@@ -1,1 +1,554 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>KI-Vertriebsreife Checkliste</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#5ba3c4 0%,#4a8fa8 100%);min-height:100vh;padding:30px 20px}.container{max-width:900px;margin:0 auto;background:white;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,0.2);padding:50px}header{text-align:center;margin-bottom:40px;border-bottom:3px solid #FFC81E;padding-bottom:20px}header h1{color:#1a1a1a;font-size:32px;margin-bottom:10px}header p{color:#5ba3c4;font-size:16px;font-weight:500}.error-box{background:#fff3cd;border:2px solid #ff6b6b;border-radius:6px;padding:16px;margin-bottom:20px;display:none;text-align:center}.error-box.show{display:block}.error-box h4{color:#d63031;font-size:16px;margin:0}.question{margin-bottom:30px;transition:all 0.3s ease;padding:12px;border-radius:4px;border-left:4px solid transparent}.question.missing{background-color:#ffe0e0;border-left-color:#d63031;border-radius:4px}.question label{font-size:15px;color:#1a1a1a;font-weight:500;margin-bottom:12px;display:block;transition:color 0.3s ease}.question.missing label{color:#d63031;font-weight:600}.answer-options{background:#f9f9f9;padding:12px;border-radius:4px}.answer-options label{display:block;margin-bottom:10px;cursor:pointer;font-size:14px;color:#333;font-weight:normal}.answer-options input[type="radio"]{margin-right:8px;cursor:pointer;width:16px;height:16px;accent-color:#FFC81E}.section-title{background:#5ba3c4;color:white;padding:12px 20px;margin-top:30px;margin-bottom:20px;border-radius:4px;font-size:16px;font-weight:600}.button-group{margin-top:40px;text-align:center}button{background:#FFC81E;color:#1a1a1a;border:none;padding:14px 40px;margin:10px;font-size:16px;font-weight:600;border-radius:4px;cursor:pointer;transition:all 0.3s ease}button:hover{background:#FFB81E;transform:translateY(-2px);box-shadow:0 5px 15px rgba(255,200,30,0.3)}.result-box{margin-top:30px;padding:20px;background:#f5f5f5;border-left:4px solid #FFC81E;border-radius:4px;display:none}.result-box.show{display:block}.result-box h3{color:#5ba3c4;margin-bottom:10px}.result-box p{color:#1a1a1a;line-height:1.6;margin-bottom:8px}.score-percentage{font-size:28px;font-weight:bold;color:#FFC81E;margin:15px 0}</style></head><body><div class="container"><header><h1>KI-Vertriebsreife Checkliste</h1><p>Bewerten Sie Ihren aktuellen Reifegrad für AI-Integration im Vertrieb</p></header><form id="checklist-form"><div id="errorBox" class="error-box"><h4>⚠ Bitte alle Fragen beantworten</h4></div><div class="section-title">1. Organisatorische Voraussetzungen</div><div class="question"><label>Verfügt Ihr Vertriebsteam über eine klare Strategie und Ziele?</label><div class="answer-options"><label><input type="radio" name="q1" value="100"> Vollkommen</label><label><input type="radio" name="q1" value="66"> Überwiegend</label><label><input type="radio" name="q1" value="33"> Teilweise</label><label><input type="radio" name="q1" value="0"> Gar nicht</label></div></div><div class="question"><label>Sind Ihre Geschäftsprozesse dokumentiert und standardisiert?</label><div class="answer-options"><label><input type="radio" name="q2" value="100"> Vollkommen</label><label><input type="radio" name="q2" value="66"> Überwiegend</label><label><input type="radio" name="q2" value="33"> Teilweise</label><label><input type="radio" name="q2" value="0"> Gar nicht</label></div></div><div class="question"><label>Haben Sie ein CRM-System implementiert und nutzen es aktiv?</label><div class="answer-options"><label><input type="radio" name="q3" value="100"> Vollkommen</label><label><input type="radio" name="q3" value="66"> Überwiegend</label><label><input type="radio" name="q3" value="33"> Teilweise</label><label><input type="radio" name="q3" value="0"> Gar nicht</label></div></div><div class="question"><label>Ist Ihr Management von AI-Implementation überzeugt?</label><div class="answer-options"><label><input type="radio" name="q4" value="100"> Vollkommen</label><label><input type="radio" name="q4" value="66"> Überwiegend</label><label><input type="radio" name="q4" value="33"> Teilweise</label><label><input type="radio" name="q4" value="0"> Gar nicht</label></div></div><div class="section-title">2. Datenverwaltung &amp; Infrastruktur</div><div class="question"><label>Haben Sie eine zentrale Datenverwaltung?</label><div class="answer-options"><label><input type="radio" name="q5" value="100"> Vollkommen</label><label><input type="radio" name="q5" value="66"> Überwiegend</label><label><input type="radio" name="q5" value="33"> Teilweise</label><label><input type="radio" name="q5" value="0"> Gar nicht</label></div></div><div class="question"><label>Sind Ihre Daten strukturiert, sauber und aktuell?</label><div class="answer-options"><label><input type="radio" name="q6" value="100"> Vollkommen</label><label><input type="radio" name="q6" value="66"> Überwiegend</label><label><input type="radio" name="q6" value="33"> Teilweise</label><label><input type="radio" name="q6" value="0"> Gar nicht</label></div></div><div class="question"><label>Verfügen Sie über IT-Infrastruktur?</label><div class="answer-options"><label><input type="radio" name="q7" value="100"> Vollkommen</label><label><input type="radio" name="q7" value="66"> Überwiegend</label><label><input type="radio" name="q7" value="33"> Teilweise</label><label><input type="radio" name="q7" value="0"> Gar nicht</label></div></div><div class="question"><label>Sind Datensicherheit und Datenschutz implementiert?</label><div class="answer-options"><label><input type="radio" name="q8" value="100"> Vollkommen</label><label><input type="radio" name="q8" value="66"> Überwiegend</label><label><input type="radio" name="q8" value="33"> Teilweise</label><label><input type="radio" name="q8" value="0"> Gar nicht</label></div></div><div class="section-title">3. Personal &amp; Kompetenzen</div><div class="question"><label>Haben Sie Mitarbeiter mit AI-Kenntnissen?</label><div class="answer-options"><label><input type="radio" name="q9" value="100"> Vollkommen</label><label><input type="radio" name="q9" value="66"> Überwiegend</label><label><input type="radio" name="q9" value="33"> Teilweise</label><label><input type="radio" name="q9" value="0"> Gar nicht</label></div></div><div class="question"><label>Ist Ihre Organisation bereit für Schulungen?</label><div class="answer-options"><label><input type="radio" name="q10" value="100"> Vollkommen</label><label><input type="radio" name="q10" value="66"> Überwiegend</label><label><input type="radio" name="q10" value="33"> Teilweise</label><label><input type="radio" name="q10" value="0"> Gar nicht</label></div></div><div class="question"><label>Akzeptiert Ihr Team neue Werkzeuge?</label><div class="answer-options"><label><input type="radio" name="q11" value="100"> Vollkommen</label><label><input type="radio" name="q11" value="66"> Überwiegend</label><label><input type="radio" name="q11" value="33"> Teilweise</label><label><input type="radio" name="q11" value="0"> Gar nicht</label></div></div><div class="section-title">4. Geschäftliche Anwendungsfälle</div><div class="question"><label>Haben Sie Schmerzpunkte identifiziert?</label><div class="answer-options"><label><input type="radio" name="q12" value="100"> Vollkommen</label><label><input type="radio" name="q12" value="66"> Überwiegend</label><label><input type="radio" name="q12" value="33"> Teilweise</label><label><input type="radio" name="q12" value="0"> Gar nicht</label></div></div><div class="question"><label>Können Sie ROI für AI kalkulieren?</label><div class="answer-options"><label><input type="radio" name="q13" value="100"> Vollkommen</label><label><input type="radio" name="q13" value="66"> Überwiegend</label><label><input type="radio" name="q13" value="33"> Teilweise</label><label><input type="radio" name="q13" value="0"> Gar nicht</label></div></div><div class="question"><label>Haben Sie Use Cases definiert?</label><div class="answer-options"><label><input type="radio" name="q14" value="100"> Vollkommen</label><label><input type="radio" name="q14" value="66"> Überwiegend</label><label><input type="radio" name="q14" value="33"> Teilweise</label><label><input type="radio" name="q14" value="0"> Gar nicht</label></div></div><div class="section-title">5. Technologische Readiness</div><div class="question"><label>Sind Ihre Systeme integriert?</label><div class="answer-options"><label><input type="radio" name="q15" value="100"> Vollkommen</label><label><input type="radio" name="q15" value="66"> Überwiegend</label><label><input type="radio" name="q15" value="33"> Teilweise</label><label><input type="radio" name="q15" value="0"> Gar nicht</label></div></div><div class="question"><label>Verfügen Sie über APIs?</label><div class="answer-options"><label><input type="radio" name="q16" value="100"> Vollkommen</label><label><input type="radio" name="q16" value="66"> Überwiegend</label><label><input type="radio" name="q16" value="33"> Teilweise</label><label><input type="radio" name="q16" value="0"> Gar nicht</label></div></div><div class="section-title">6. Change Management &amp; Adoption</div><div class="question"><label>Haben Sie Change-Management geplant?</label><div class="answer-options"><label><input type="radio" name="q17" value="100"> Vollkommen</label><label><input type="radio" name="q17" value="66"> Überwiegend</label><label><input type="radio" name="q17" value="33"> Teilweise</label><label><input type="radio" name="q17" value="0"> Gar nicht</label></div></div><div class="question"><label>Sind Mitarbeiter offen für Veränderungen?</label><div class="answer-options"><label><input type="radio" name="q18" value="100"> Vollkommen</label><label><input type="radio" name="q18" value="66"> Überwiegend</label><label><input type="radio" name="q18" value="33"> Teilweise</label><label><input type="radio" name="q18" value="0"> Gar nicht</label></div></div><div class="question"><label>Haben Sie KPIs definiert?</label><div class="answer-options"><label><input type="radio" name="q19" value="100"> Vollkommen</label><label><input type="radio" name="q19" value="66"> Überwiegend</label><label><input type="radio" name="q19" value="33"> Teilweise</label><label><input type="radio" name="q19" value="0"> Gar nicht</label></div></div><div class="question"><label>Planen Sie regelßäßige Evaluationen?</label><div class="answer-options"><label><input type="radio" name="q20" value="100"> Vollkommen</label><label><input type="radio" name="q20" value="66"> Überwiegend</label><label><input type="radio" name="q20" value="33"> Teilweise</label><label><input type="radio" name="q20" value="0"> Gar nicht</label></div></div></form><div class="button-group"><button id="calculateBtn">Ergebnis berechnen</button><button id="resetBtn">Formular zurücksetzen</button></div><div id="resultBox" class="result-box"><h3>Ihre KI-Vertriebreife</h3><div class="score-percentage" id="resultPercentage"></div><p id="resultText"></p></div></div><script>const form=document.getElementById('checklist-form');const calculateBtn=document.getElementById('calculateBtn');const resetBtn=document.getElementById('resetBtn');const errorBox=document.getElementById('errorBox');const resultBox=document.getElementById('resultBox');const resultPercentage=document.getElementById('resultPercentage');const resultText=document.getElementById('resultText');const allQuestions=document.querySelectorAll('.question');form.addEventListener('change',function(){const questions=document.querySelectorAll('.question');questions.forEach(q=>{const checked=q.querySelector('input[type="radio"]:checked');if(checked){q.classList.remove('missing');}});});calculateBtn.addEventListener('click',function(e){e.preventDefault();validateAndCalculate();});resetBtn.addEventListener('click',function(e){e.preventDefault();form.reset();allQuestions.forEach(q=>q.classList.remove('missing'));errorBox.classList.remove('show');resultBox.classList.remove('show');});function validateAndCalculate(){const questions=document.querySelectorAll('.question');let firstMissing=null;let hasErrors=false;questions.forEach(q=>{const checked=q.querySelector('input[type="radio"]:checked');if(!checked){hasErrors=true;q.classList.add('missing');if(!firstMissing)firstMissing=q;}else{q.classList.remove('missing');}});if(hasErrors){errorBox.classList.add('show');if(firstMissing){setTimeout(()=>{firstMissing.scrollIntoView({behavior:'smooth',block:'center'});},300);}return;}errorBox.classList.remove('show');calculateScore();}function calculateScore(){let totalScore=0;const maxScore=20*100;for(let i=1;i<=20;i++){const radio=document.querySelector('input[name="q'+i+'"][type="radio"]:checked');if(radio){totalScore+=parseInt(radio.value,10);}}const percent=Math.round((totalScore/maxScore)*100);resultPercentage.textContent=percent+'%';if(percent>=80){resultText.textContent='Sehr gut vorbereitet. Sie haben eine starke Grundlage für KI im Vertrieb.';}else if(percent>=60){resultText.textContent='Gut vorbereitet. Sie haben eine solide Grundlage. Konzentrieren Sie sich auf die fehlenden Bereiche.';}else if(percent>=40){resultText.textContent='Moderate Vorbereitung. Es besteht Handlungsbedarf in mehreren Bereichen.';}else{resultText.textContent='Aktuell besteht deutlicher Handlungsbedarf, bevor Sie KI im Vertrieb sinnvoll einsetzen können.';}resultBox.classList.add('show');}</script></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI-Vertriebsreife Checkliste</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #5ba3c4 0%, #4a8fa8 100%);
+      min-height: 100vh;
+      padding: 30px 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      padding: 50px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      border-bottom: 3px solid #FFC81E;
+      padding-bottom: 20px;
+    }
+    header h1 { color: #1a1a1a; font-size: 32px; margin-bottom: 10px; }
+    header p { color: #5ba3c4; font-size: 16px; font-weight: 500; }
+    .error-box {
+      background: #fff3cd;
+      border: 2px solid #ff6b6b;
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 20px;
+      display: none;
+      text-align: center;
+    }
+    .error-box.show { display: block; }
+    .error-box h4 { color: #d63031; font-size: 16px; margin: 0; }
+    .question {
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+      padding: 12px;
+      border-radius: 4px;
+      border-left: 4px solid transparent;
+    }
+    .question.missing {
+      background-color: #ffe0e0;
+      border-left-color: #d63031;
+      border-radius: 4px;
+    }
+    .question label {
+      font-size: 15px;
+      color: #1a1a1a;
+      font-weight: 500;
+      margin-bottom: 12px;
+      display: block;
+      transition: color 0.3s ease;
+    }
+    .question.missing label { color: #d63031; font-weight: 600; }
+    .answer-options {
+      background: #f9f9f9;
+      padding: 12px;
+      border-radius: 4px;
+    }
+    .answer-options label {
+      display: block;
+      margin-bottom: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #333;
+      font-weight: normal;
+    }
+    .answer-options input[type="radio"] {
+      margin-right: 8px;
+      cursor: pointer;
+      width: 16px;
+      height: 16px;
+      accent-color: #FFC81E;
+    }
+    .section-title {
+      background: #5ba3c4;
+      color: white;
+      padding: 12px 20px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .button-group {
+      margin-top: 40px;
+      text-align: center;
+    }
+    button {
+      background: #FFC81E;
+      color: #1a1a1a;
+      border: none;
+      padding: 14px 40px;
+      margin: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: #FFB81E;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255,200,30,0.3);
+    }
+    .result-box {
+      margin-top: 30px;
+      padding: 20px;
+      background: #f5f5f5;
+      border-left: 4px solid #FFC81E;
+      border-radius: 4px;
+      display: none;
+    }
+    .result-box.show { display: block; }
+    .result-box h3 { color: #5ba3c4; margin-bottom: 15px; }
+    .result-box p { color: #1a1a1a; line-height: 1.6; margin-bottom: 8px; }
+    .score-percentage { font-size: 28px; font-weight: bold; color: #FFC81E; margin: 15px 0; }
+    .section-breakdown { background: #fff; padding: 15px; border-radius: 4px; margin: 15px 0; border: 1px solid #ddd; }
+    .section-breakdown h4 { color: #5ba3c4; font-size: 14px; margin-bottom: 8px; }
+    .section-score { display: flex; justify-content: space-between; margin-bottom: 5px; }
+    .section-score-name { font-size: 13px; color: #333; }
+    .section-score-value { font-weight: bold; color: #FFC81E; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>KI-Vertriebsreife Checkliste</h1>
+      <p>Bewerten Sie Ihren aktuellen Reifegrad für AI-Integration im Vertrieb</p>
+    </header>
+    
+    <form id="checklist-form">
+      <div id="errorBox" class="error-box">
+        <h4>⚠ Bitte alle Fragen beantworten</h4>
+      </div>
+      
+      <div class="section-title">1. Organisatorische Voraussetzungen</div>
+      <div class="question">
+        <label>Verfügt Ihr Vertriebsteam über eine klare Strategie und Ziele?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q1" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q1" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q1" value="33"> Teilweise</label>
+          <label><input type="radio" name="q1" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="question">
+        <label>Sind Ihre Geschäftsprozesse dokumentiert und standardisiert?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q2" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q2" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q2" value="33"> Teilweise</label>
+          <label><input type="radio" name="q2" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="question">
+        <label>Haben Sie ein CRM-System implementiert und nutzen es aktiv?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q3" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q3" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q3" value="33"> Teilweise</label>
+          <label><input type="radio" name="q3" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="question">
+        <label>Ist Ihr Management von AI-Implementation überzeugt?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q4" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q4" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q4" value="33"> Teilweise</label>
+          <label><input type="radio" name="q4" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="section-title">2. Datenverwaltung & Infrastruktur</div>
+      <div class="question">
+        <label>Haben Sie eine zentrale Datenverwaltung?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q5" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q5" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q5" value="33"> Teilweise</label>
+          <label><input type="radio" name="q5" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="question">
+        <label>Sind Ihre Daten strukturiert, sauber und aktuell?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q6" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q6" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q6" value="33"> Teilweise</label>
+          <label><input type="radio" name="q6" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="question">
+        <label>Verfügen Sie über IT-Infrastruktur?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q7" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q7" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q7" value="33"> Teilweise</label>
+          <label><input type="radio" name="q7" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="question">
+        <label>Sind Datensicherheit und Datenschutz implementiert?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q8" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q8" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q8" value="33"> Teilweise</label>
+          <label><input type="radio" name="q8" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="section-title">3. Personal & Kompetenzen</div>
+      <div class="question">
+        <label>Haben Sie Mitarbeiter mit AI-Kenntnissen?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q9" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q9" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q9" value="33"> Teilweise</label>
+          <label><input type="radio" name="q9" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="question">
+        <label>Ist Ihre Organisation bereit für Schulungen?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q10" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q10" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q10" value="33"> Teilweise</label>
+          <label><input type="radio" name="q10" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="question">
+        <label>Akzeptiert Ihr Team neue Werkzeuge?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q11" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q11" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q11" value="33"> Teilweise</label>
+          <label><input type="radio" name="q11" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="section-title">4. Geschäftliche Anwendungsfälle</div>
+      <div class="question">
+        <label>Haben Sie Schmerzpunkte identifiziert?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q12" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q12" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q12" value="33"> Teilweise</label>
+          <label><input type="radio" name="q12" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="question">
+        <label>Können Sie ROI für AI kalkulieren?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q13" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q13" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q13" value="33"> Teilweise</label>
+          <label><input type="radio" name="q13" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="question">
+        <label>Haben Sie Use Cases definiert?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q14" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q14" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q14" value="33"> Teilweise</label>
+          <label><input type="radio" name="q14" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="section-title">5. Technologische Readiness</div>
+      <div class="question">
+        <label>Sind Ihre Systeme integriert?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q15" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q15" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q15" value="33"> Teilweise</label>
+          <label><input type="radio" name="q15" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="question">
+        <label>Verfügen Sie über APIs?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q16" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q16" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q16" value="33"> Teilweise</label>
+          <label><input type="radio" name="q16" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="section-title">6. Change Management & Adoption</div>
+      <div class="question">
+        <label>Haben Sie Change-Management geplant?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q17" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q17" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q17" value="33"> Teilweise</label>
+          <label><input type="radio" name="q17" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="question">
+        <label>Sind Mitarbeiter offen für Veränderungen?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q18" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q18" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q18" value="33"> Teilweise</label>
+          <label><input type="radio" name="q18" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="question">
+        <label>Haben Sie KPIs definiert?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q19" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q19" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q19" value="33"> Teilweise</label>
+          <label><input type="radio" name="q19" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="question">
+        <label>Planen Sie regelmäßige Evaluationen?</label>
+        <div class="answer-options">
+          <label><input type="radio" name="q20" value="100"> Vollkommen</label>
+          <label><input type="radio" name="q20" value="66"> Überwiegend</label>
+          <label><input type="radio" name="q20" value="33"> Teilweise</label>
+          <label><input type="radio" name="q20" value="0"> Gar nicht</label>
+        </div>
+      </div>
+      
+      <div class="button-group">
+        <button id="calculateBtn">Ergebnis berechnen</button>
+        <button id="resetBtn">Formular zurücksetzen</button>
+      </div>
+      
+      <div id="resultBox" class="result-box">
+        <h3>Ihre KI-Vertriebsreife</h3>
+        <div class="score-percentage" id="resultPercentage">0%</div>
+        <p id="resultText">Warten Sie auf die Berechnung...</p>
+        <div class="section-breakdown">
+          <h4>📊 Detaillierte Bewertung nach Bereichen:</h4>
+          <div class="section-score"><span class="section-score-name">1. Organisatorische Voraussetzungen (15%)</span><span class="section-score-value" id="score1">0%</span></div>
+          <div class="section-score"><span class="section-score-name">2. Datenverwaltung & Infrastruktur (20%)</span><span class="section-score-value" id="score2">0%</span></div>
+          <div class="section-score"><span class="section-score-name">3. Personal & Kompetenzen (20%)</span><span class="section-score-value" id="score3">0%</span></div>
+          <div class="section-score"><span class="section-score-name">4. Geschäftliche Anwendungsfälle (15%)</span><span class="section-score-value" id="score4">0%</span></div>
+          <div class="section-score"><span class="section-score-name">5. Technologische Readiness (15%)</span><span class="section-score-value" id="score5">0%</span></div>
+          <div class="section-score"><span class="section-score-name">6. Change Management (15%)</span><span class="section-score-value" id="score6">0%</span></div>
+        </div>
+        <p id="commentaryBox" style="margin-top: 20px; padding: 15px; background: #e8f4f8; border-left: 4px solid #5ba3c4; border-radius: 4px; font-style: italic;"></p>
+      </div>
+    </form>
+  </div>
+  
+  <script>
+    const form = document.getElementById('checklist-form');
+    const calculateBtn = document.getElementById('calculateBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const errorBox = document.getElementById('errorBox');
+    const resultBox = document.getElementById('resultBox');
+    const resultPercentage = document.getElementById('resultPercentage');
+    const resultText = document.getElementById('resultText');
+    const commentaryBox = document.getElementById('commentaryBox');
+    const allQuestions = document.querySelectorAll('.question');
+    
+    form.addEventListener('change', function() {
+      const questions = document.querySelectorAll('.question');
+      questions.forEach(q => {
+        const checked = q.querySelector('input[type="radio"]:checked');
+        if(checked) {
+          q.classList.remove('missing');
+        }
+      });
+    });
+    
+    calculateBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      validateAndCalculate();
+    });
+    
+    resetBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      form.reset();
+      allQuestions.forEach(q => q.classList.remove('missing'));
+      errorBox.classList.remove('show');
+      resultBox.classList.remove('show');
+    });
+    
+    function validateAndCalculate() {
+      const questions = document.querySelectorAll('.question');
+      let firstMissing = null;
+      let hasErrors = false;
+      
+      questions.forEach(q => {
+        const checked = q.querySelector('input[type="radio"]:checked');
+        if(!checked) {
+          hasErrors = true;
+          q.classList.add('missing');
+          if(!firstMissing) firstMissing = q;
+        } else {
+          q.classList.remove('missing');
+        }
+      });
+      
+      if(hasErrors) {
+        errorBox.classList.add('show');
+        if(firstMissing) {
+          setTimeout(() => {
+            firstMissing.scrollIntoView({behavior: 'smooth', block: 'center'});
+          }, 300);
+        }
+        return;
+      }
+      
+      errorBox.classList.remove('show');
+      calculateScore();
+    }
+    
+    function calculateScore() {
+      // Weighted sections configuration
+      const sections = [
+        {id: 1, questions: [1, 2, 3, 4], weight: 0.15, name: 'Organisatorische Voraussetzungen'},
+        {id: 2, questions: [5, 6, 7, 8], weight: 0.20, name: 'Datenverwaltung & Infrastruktur'},
+        {id: 3, questions: [9, 10, 11], weight: 0.20, name: 'Personal & Kompetenzen'},
+        {id: 4, questions: [12, 13, 14], weight: 0.15, name: 'Geschäftliche Anwendungsfälle'},
+        {id: 5, questions: [15, 16], weight: 0.15, name: 'Technologische Readiness'},
+        {id: 6, questions: [17, 18, 19, 20], weight: 0.15, name: 'Change Management & Adoption'}
+      ];
+      
+      let totalWeightedScore = 0;
+      const sectionScores = {};
+      
+      // Calculate scores per section
+      sections.forEach(section => {
+        let sectionTotal = 0;
+        let count = section.questions.length;
+        
+        section.questions.forEach(qNum => {
+          const radio = document.querySelector('input[name="q' + qNum + '"]:checked');
+          if(radio) {
+            sectionTotal += parseInt(radio.value, 10);
+          }
+        });
+        
+        const sectionPercent = Math.round((sectionTotal / (count * 100)) * 100);
+        sectionScores[section.id] = sectionPercent;
+        
+        // Add weighted score to total
+        totalWeightedScore += (sectionPercent / 100) * section.weight;
+      });
+      
+      const percent = Math.round(totalWeightedScore * 100);
+      resultPercentage.textContent = percent + '%';
+      
+      // Update section scores display
+      for(let i = 1; i <= 6; i++) {
+        document.getElementById('score' + i).textContent = sectionScores[i] + '%';
+      }
+      
+      // Generate commentary based on score and section analysis
+      let commentary = generateCommentary(percent, sectionScores);
+      resultText.textContent = commentary.summary;
+      commentaryBox.textContent = commentary.detailed;
+      
+      resultBox.classList.add('show');
+    }
+    
+    function generateCommentary(score, sectionScores) {
+      let summary = '';
+      let detailed = '';
+      
+      if(score >= 85) {
+        summary = 'Exzellente KI-Reife! Sie sind umfassend vorbereitet und können zeitnah mit KI-Initiativen im Vertrieb starten.';
+        detailed = '🌟 Ihre Organisation hat eine hervorragende Grundlage für KI-Integration im Vertrieb. Sie verfügen über klare Strategien, hochwertige Daten, motivierte Teams und fortgeschrittene Technologien. Empfehlung: Starten Sie jetzt mit Pilotprojekten in prioritären Use Cases und etablieren Sie Governance-Strukturen.';
+      }
+      else if(score >= 70) {
+        summary = 'Gute KI-Reife. Sie haben eine solide Grundlage und können mit Fokus auf Schwachstellen implementieren.';
+        const weakAreas = identifyWeakAreas(sectionScores);
+        detailed = '😊 Ihre Organisation ist gut vorbereitet, hat aber noch Verbesserungspotenziale. Schwachstellen: ' + weakAreas + '. Empfehlung: Priorisieren Sie diese Bereiche und entwickeln Sie einen 6-Monats-Verbesserungsplan.';
+      }
+      else if(score >= 50) {
+        summary = 'Moderate Vorbereitung. Es gibt mehrere Handlungsfelder, bevor eine sinnvolle KI-Implementierung möglich ist.';
+        const priority = getPriorityAreas(sectionScores);
+        detailed = '😔 Ihre Vorbereitung ist moderat. Kritische Bereiche: ' + priority + '. Empfehlung: Etablieren Sie zuerst eine zentrale Datenstrategie und führen Sie grundlegende Schulungen durch.';
+      }
+      else {
+        summary = 'Grundlegende Vorbereitung erforderlich. KI-Integration ist aktuell nicht sinnvoll ohne vorherige Grundlagen-Arbeiten.';
+        detailed = '🚫 Ihre Organisation hat noch größere Lücken. Empfehlung: Starten Sie mit Basis-Initiativen: 1) CRM-Implementierung, 2) Datenverwaltung, 3) Change Management. Wiederholen Sie diese Bewertung in 6 Monaten.';
+      }
+      
+      return {summary: summary, detailed: detailed};
+    }
+    
+    function identifyWeakAreas(sectionScores) {
+      const areas = [];
+      const sectionNames = {
+        1: 'Org. Voraussetzungen',
+        2: 'Datenverwaltung',
+        3: 'Personal',
+        4: 'Use Cases',
+        5: 'Technologie',
+        6: 'Change Management'
+      };
+      
+      for(let i = 1; i <= 6; i++) {
+        if(sectionScores[i] < 60) {
+          areas.push(sectionNames[i]);
+        }
+      }
+      
+      return areas.length > 0 ? areas.join(', ') : 'keine bekannten';
+    }
+    
+    function getPriorityAreas(sectionScores) {
+      const areas = [];
+      const sectionNames = {
+        1: 'Strategie & Ziele',
+        2: 'Datensicherheit & Qualität',
+        3: 'Mitarbeiter-Kompetenzen',
+        4: 'ROI-Kalkulation',
+        5: 'System-Integration',
+        6: 'Change Management'
+      };
+      
+      for(let i = 1; i <= 6; i++) {
+        if(sectionScores[i] < 40) {
+          areas.push(sectionNames[i]);
+        }
+      }
+      
+      return areas.length > 0 ? areas.join(', ') : 'mehrere Bereiche';
+    }
+  </script>
+</body>
+</html>
